@@ -21,7 +21,7 @@ int main()
 			dem++;
 		}
 	}
-	tb = soChiaHet3 / dem;
+	tb = soChiaHet3*1.0 / dem;
 	printf("Trung binh cong cac so chia het cho 3 trong mang la: %.1lf", tb);
 	return 0;
 }
