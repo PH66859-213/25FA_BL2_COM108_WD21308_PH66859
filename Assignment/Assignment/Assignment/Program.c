@@ -118,43 +118,48 @@ void CN3_TinhTienKaraoke() {
     printf("\n===================================\n");
     
 }
+
 void CN4_TinhTienDien() {
-    //printf("Day la chuc nang so 4 : Tinh tien dien!\n");
-    /*int tieptuc = 1;
-    do
-    {*/
+    int soDien;
+    double bill=0;
     printf("\n===================================\n");
     printf("Chuc nang so 4 : Tinh tien dien!\n");
-    printf("\n===================================\n");
-    //int soNguyen;
-    /*printf("\n----------------------------------\n");
-    printf("Ban co muon TIEP TUC thuc hien Chuc Nang 4 khong?\n");
-    printf("Nhap [1] de tiep tuc, nhap [0] de thoat ve Menu chinh: ");
-
-    scanf_s("%d", &tieptuc);
-    if (tieptuc != 1 && tieptuc != 0) {
-        printf("Lua chon khong hop le!! Vui long nhap [1] hoac [0]!");
+    printf("Nhap so kwh thang vua roi: ");
+    scanf_s("%d", &soDien);
+    while (soDien < 0) {
+        printf("So dien phai lon hon 0! Nhap lai so dien : ");
+        scanf_s("%d", &soDien);
     }
-} while (tieptuc == 1);*/
+    if (soDien <= 50) {
+        bill = soDien * 1678;
+    }
+    else if (soDien <= 100) {
+        bill = 50 * 1678 + (soDien - 50) * 1734;
+    }
+    else if (soDien <= 200) {
+        bill = 50 * 1678 + 50 * 1734 + (soDien - 100) * 2014;
+    }
+    else if (soDien <= 300) {
+        bill = 50 * 1678 + 50 * 1734 + 100 * 2014 + (soDien - 200) * 2536;
+    }
+    else if (soDien <= 400) {
+        bill = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (soDien - 300) * 2834;
+    }
+    else {
+        bill = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (soDien - 400) * 2927;
+    }
+    printf("Tong so tien dien can thanh toan thang nay la: %.2lf VND", bill);
+    printf("\n===================================\n");
+    
 }
 void CN5_DoiTien() {
-    //printf("Day la chuc nang so 5 : Chuc nang doi tien!\n");
-  /*  int tieptuc = 1;
-    do
-    {*/
+   
     printf("\n===================================\n");
     printf("Chuc nang so 5 : Chuc nang doi tien!\n");
-    printf("\n===================================\n");
-    //int soNguyen;
-   /* printf("\n----------------------------------\n");
-    printf("Ban co muon TIEP TUC thuc hien Chuc Nang 5 khong?\n");
-    printf("Nhap [1] de tiep tuc, nhap [0] de thoat ve Menu chinh: ");
 
-    scanf_s("%d", &tieptuc);
-    if (tieptuc != 1 && tieptuc != 0) {
-        printf("Lua chon khong hop le!! Vui long nhap [1] hoac [0]!");
-    }
-} while (tieptuc == 1);*/
+
+    printf("\n===================================\n");
+    
 }
 void CN6_TinhLaiSuat() {
     //printf("Day la chuc nang so 6 : Chuc nang tinh lai xuat vay ngan hang vay tra gop!\n");
@@ -305,8 +310,8 @@ void lapChucNang(int chonChucNang) {
                 break;
             case 3: CN3_TinhTienKaraoke();
                 break;
-            //case 4: CN4_TinhTienDien();
-            //    break;
+            case 4: CN4_TinhTienDien();
+                break;
             //case 5: CN5_DoiTien();
             //    break;
             //case 6: handle_function_loop(CN6_TinhLaiSuat);
