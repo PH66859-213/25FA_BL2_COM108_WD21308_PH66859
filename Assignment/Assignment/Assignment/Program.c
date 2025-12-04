@@ -274,7 +274,6 @@ void CN7_VayTienMuaXe() {
     
 }
 void CN8_SapXepThongTinSinhVien() {
-//#define MAX 100
     printf("\n===================================\n");
     printf("Chuc nang so 8 : Chuc nang sap xep thong tin sinh vien!\n");
     int n;
@@ -286,7 +285,8 @@ void CN8_SapXepThongTinSinhVien() {
     for (int i = 0; i < n; i++) {
         clear_input_buffer();
         printf("Nhap ten sinh vien %d: ", i + 1);
-        scanf(" %[^\n]", hoTen[i]);
+        scanf("%[^\n]", hoTen[i]);
+        //fgets(hoTen[i], sizeof(hoTen[i]), stdin);
         printf("Nhap diem cua sinh vien %d: ", i + 1);
         scanf_s("%lf", &diem[i]);
 

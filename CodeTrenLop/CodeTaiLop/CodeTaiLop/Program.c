@@ -3,7 +3,7 @@
 //PH66859
 //Final Assignment
 
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 
@@ -13,36 +13,6 @@ void clear_input_buffer() {
     while ((c = getchar()) != '\n' && c != EOF) {}
 }
 
-typedef void (*FunctionPtr)();
-
-void handle_function_loop(FunctionPtr function_to_call/*, const char* function_name*/) {
-
-    int tieptuc;
-    int luaChonHopLe;
-
-    do
-    {
-        function_to_call();
-
-        do
-        {
-            luaChonHopLe = 1;
-            printf("\n------------------------------\n");
-            printf("Ban co muon TIEP TUC thuc hien Chuc Nang nay hay khong?\n");
-            printf("Nhap [1] de tiep tuc, nhap [0] de thoat ve Menu chinh: \n");
-
-            if (scanf_s("%d", &tieptuc) != 1) {
-                printf("Lua chon khong hop le (Nhap sai kieu du lieu)! Vui long nhap [1] hoac [0]!\n");
-                luaChonHopLe = 0;
-            }
-            else if (tieptuc != 1 && tieptuc != 0) {
-                printf("Lua chon khong hop le!! Vui long nhap [1] hoac [0]!\n");
-                luaChonHopLe = 0;
-            }
-            clear_input_buffer();
-        } while (luaChonHopLe == 0);
-    } while (tieptuc == 1);
-}
 
 void CN1_KiemTraSoNguyen() {
 
@@ -144,6 +114,72 @@ void mangKyTu() {
     //fgets(mangKyTu);
 
 }
+
+void demoString() {
+    char mangKyTu[30];
+    while (getchar() != '\n');
+    printf("Nhap du lieu: ");
+    fgets(mangKyTu, sizeof(mangKyTu), stdin);
+    printf("%s", mangKyTu);
+    printf("\n");
+    printf("Sring Length: ");
+    printf("%d",strlen(mangKyTu)-1);
+    printf("\nString Compare: ");
+    printf("%d", strcmp("aBc", "aBc"));
+    printf("\nString Compare: ");
+    printf("%d", strcmp("B", "A"));
+    printf("\nString Compare: ");
+    printf("%d", strcmp("A", "B"));
+
+    printf("\nString Reverse (Encryption) : ");
+    printf("%s", strrev(mangKyTu));
+    printf("\nString Reverse (Decryption) : ");
+    printf("%s", strrev(mangKyTu));
+
+    printf("\nString Lower: ");
+    printf("%s", strlwr(mangKyTu));
+    printf("\nString Upper: ");
+    printf("%s", strupr(mangKyTu));
+    printf("\nFind String in String:  ");
+    if (strstr(mangKyTu, "A") != NULL) {
+        printf("Found: ");
+        printf("%s", strstr(mangKyTu, "A"));
+
+    }
+    else {
+        printf("Not found!!");
+    }
+}
+void lapChucNang(int n) {
+    int tiepTuc = 1;
+    while (tiepTuc == 1) {
+        switch (n) {
+        /*case 0: printf("\n Quy khach da quay tro lai menu chinh\n");
+            break;*/
+        case 1: CN1_KiemTraSoNguyen();
+            break;
+        case 2: CN2_TimUocVaBoi();
+            break;
+        case 3: sapXepPhanTuMang1Chieu();
+            break;
+        case 4: demoMang2Chieu();
+            break;
+        case 5: mangKyTu();
+            break;
+        case 6: demoString();
+            break;
+        default:
+            printf("Chuc nang khong hop le!! Vui long chon chuc nang tu [1-3]!\n");
+            break;
+        }
+        printf("\nBan muon tiep tuc hay dung lai? [1] tiep tuc [0] dung lai:  ");
+        scanf_s("%d", &tiepTuc);
+        if (tiepTuc != 1) {
+            printf("Quy khach da quay tro lai menu chinh!\n");
+            return;
+        }
+    }
+}
 int main() {
 
     int chon;
@@ -155,27 +191,17 @@ int main() {
         printf("3. Sap xep mang 1 chieu\n");
         printf("4. Mang 2 chieu\n");
         printf("5. Mang Ky Tu \n");
+        printf("6. Demo String \n");
         printf("0.  THOAT KHOI UNG DUNG\n");
         printf("=============================");
         printf("\nChon Chuc Nang Tren Menu: ");
         scanf_s("%d", &chon);
-        switch (chon) {
-        case 0: printf("\n Cam on quy khach da su dung dich vu!!\n");
-            break;
-        case 1: handle_function_loop(CN1_KiemTraSoNguyen);
-            break;
-        case 2: handle_function_loop(CN2_TimUocVaBoi);
-            break;
-        case 3: handle_function_loop(sapXepPhanTuMang1Chieu);
-            break;
-        case 4: handle_function_loop(demoMang2Chieu);
-            break;
-        case 5: handle_function_loop(mangKyTu);
-            break;
-        default:
-            printf("Chuc nang khong hop le!! Vui long chon chuc nang tu [1-3]!\n");
+        if (chon == 0) {
+            printf("Cam on quy khach da su dung dich vu!!");
             break;
         }
+        lapChucNang(chon);
+        
     } while (chon != 0);
 
 
