@@ -15,7 +15,6 @@ void clear_input_buffer() {
     while ((c = getchar()) != '\n' && c != EOF) {}
 }
 
-//typedef void (*FunctionPtr)();
 
 void CN1_KiemTraSoNguyen() {
     int x;
@@ -426,46 +425,6 @@ void CN10_TinhToanPhanSo() {
     printf("Thuong cua %d/%d : %d/%d = %d/%d \n", tuSo1, mauSo1, tuSo2, mauSo2, tuThuong, mauThuong);
     printf("\n===================================\n");
     
-}
-
-void sapXepPhanTuMang1Chieu() {
-    int intergerArray[100];
-    int length;
-    int temp; //temperary
-    printf("Nhap so luong phan tu mang: ");
-    scanf_s("%d", &length);
-    printf("Nhap du lieu mang %d phan tu: \n ",length);
-    for ( int i = 0; i < length;i++)
-    {
-        printf("mang[%d] = ", i);
-        scanf_s("%d", &intergerArray[i]);
-    }
-    
-
-    //printf("Sap xep Tang dan du lieu mang %d phan tu:  \n ", length);
-    for ( int i = 0; i < length-1;i++)
-    {
-        if (intergerArray[i] > intergerArray[i + 1]) {
-            temp = intergerArray[i];
-            intergerArray[i] = intergerArray[i + 1];
-            intergerArray[i + 1] = temp;
-            i = -1;
-        }
-    }
-    printf("Mang sap xep theo thu tu tang dan:  \n ");
-    for (int i = 0; i < length; i++)
-    {
-
-        printf("mang[%d] = %d ,", i, intergerArray[i]);
-    }
-
-    printf("\nMang sap xep theo thu tu giam dan:  \n ");
-    for (int i = length-1; i >-1; i--)
-    {
-
-        printf("mang[%d] = %d ,", i, intergerArray[i]);
-    }
-
 }
 
 void lapChucNang(int chonChucNang) {

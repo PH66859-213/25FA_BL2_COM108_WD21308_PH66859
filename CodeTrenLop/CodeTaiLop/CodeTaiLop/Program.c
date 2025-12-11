@@ -122,7 +122,7 @@ void demoString() {
     fgets(mangKyTu, sizeof(mangKyTu), stdin);
     printf("%s", mangKyTu);
     printf("\n");
-    printf("Sring Length: ");
+    /*printf("Sring Length: ");
     printf("%d",strlen(mangKyTu)-1);
     printf("\nString Compare: ");
     printf("%d", strcmp("aBc", "aBc"));
@@ -148,7 +148,7 @@ void demoString() {
     }
     else {
         printf("Not found!!");
-    }
+    }*/
 }
 void lapChucNang(int n) {
     int tiepTuc = 1;
