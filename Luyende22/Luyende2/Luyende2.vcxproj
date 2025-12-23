@@ -126,6 +126,12 @@
   <ItemGroup>
     <ClCompile Include="Program.c" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bai1_Thongtinthucung.h" />
+    <ClInclude Include="bai2_tinhTong.h" />
+    <ClInclude Include="bai3Thongtincuahang.h" />
+    <ClInclude Include="Struct.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
